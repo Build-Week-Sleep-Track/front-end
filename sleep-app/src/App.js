@@ -6,9 +6,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import MainPage from './components/MainPage';
-import Registration from './components/Registraton';
+import HomePage from './components/HomePage';
+import Registration from './components/Registration';
 
 
 let initialRegistrationValues = {
@@ -90,10 +89,8 @@ function App() {
           {/* <h1> 
           Hello world
           </h1> */}
-            <Route exact path="/" component={Login}/>
-            <Route path="/signup" component={SignUp} />
-            <PrivateRoute path="/main-page" component={MainPage} />
-            <Route path='/registration'>
+            <Route exact path="/login" component={Login}/>
+            <Route exact path='/registration'>
             <Registration
             values={registrationValues}
             handleChanges={handleChanges}
@@ -102,6 +99,9 @@ function App() {
             errors={formErrors}
             />
             </Route>
+            <PrivateRoute path="/home-page" component={HomePage} />
+             
+           
         </Router>
     </div>
   );
