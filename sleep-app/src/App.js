@@ -8,7 +8,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import MainPage from './components/MainPage';
-import Registration from './components/Registraton';
+import Registration from './components/Registration';
 
 
 let initialRegistrationValues = {
@@ -94,13 +94,13 @@ function App() {
             <Route path="/signup" component={SignUp} />
             <PrivateRoute path="/main-page" component={MainPage} />
             <Route path='/registration'>
-            <Registration
-            values={registrationValues}
-            handleChanges={handleChanges}
-            onSubmit={onSubmit}
-            disabled={formDisabled}
-            errors={formErrors}
-            />
+              <Registration
+              values={registrationValues}
+              handleChanges={handleChanges}
+              onSubmit={onSubmit}
+              disabled={formDisabled}
+              errors={formErrors}
+              />
             </Route>
         </Router>
     </div>
