@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const initailState = {
@@ -10,6 +10,7 @@ const initailState = {
 };
 
 const Login = props => {
+    const {push} = useHistory()
     const [login, setLogin] = useState(initailState);
 
     const handleChange = e => {
@@ -22,12 +23,16 @@ const Login = props => {
         axiosWithAuth()
         .post("/auth/login", login)
         .then(res => {
-            localStorage.setItem("token", res.data.message);
+            console.log(res);
+            localStorage.setItem("token", res.data.token);
+            push('/home-page')
 
         })
+        
         .catch(err => {
             console.log(err, 'sorry, an error has occured while logging you in');
         });
+        
     };
 
     return (
@@ -42,11 +47,11 @@ const Login = props => {
           <div>
             <form onSubmit={handleSubmit}>
               <input
-                label="Username"
+                label="Email"
                 type="text"
-                name="username"
-                placeholder="username"
-                value={login.username}
+                name="email"
+                placeholder="email"
+                value={login.email}
                 onChange={handleChange}
               />
               <br />
@@ -63,7 +68,7 @@ const Login = props => {
               <button>Log In</button>
               {login.isFetching && "Please wait...logging you in"}
             </form>
-            Don't have an account? <Link to="/signup">Sign Up</Link>
+            Don't have an account? <Link to="/registration">Sign Up</Link>
           </div>
         </div>
       );
