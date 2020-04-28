@@ -16,7 +16,7 @@ function App() {
           </h1> */}
             <Route exact path="/" component={Login}/>
             <Route path="/signup" component={SignUp} />
-            <PrivateRoute path="/main-page" component={MainPage} />
+            <Route path="/main-page" component={MainPage} />
         </Router>
     </div>
   );

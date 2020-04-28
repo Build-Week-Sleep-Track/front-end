@@ -6,7 +6,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 // import NavBar from "./NavBar";
 
 const MainPage = () => {
-  const [pieList, setPieList] = useState([]);
+//   const [pieList, setPieList] = useState([]);
 
 //   useEffect(() => {
 //     axiosWithAuth()
