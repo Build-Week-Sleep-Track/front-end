@@ -8,6 +8,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 import HomePage from './components/HomePage';
 import Registration from './components/Registration';
+import SleepForm from './components/SleepForm';
 
 
 let initialRegistrationValues = {
@@ -100,6 +101,7 @@ function App() {
             />
             </Route>
             <PrivateRoute path="/home-page" component={HomePage} />
+            <PrivateRoute path="/sleep-form" component={SleepForm}/>
              
            
         </Router>

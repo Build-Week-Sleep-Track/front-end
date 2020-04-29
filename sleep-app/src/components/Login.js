@@ -23,8 +23,9 @@ const Login = props => {
         axiosWithAuth()
         .post("/auth/login", login)
         .then(res => {
-            console.log(res);
+            console.log('line 26', res);
             localStorage.setItem("token", res.data.token);
+            console.log('line 28', res.data.token);
             push('/home-page')
 
         })
