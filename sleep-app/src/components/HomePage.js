@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import HomeCard from './HomeCard';
 
 // components
 import NavBar from "./NavBar";
 
+
 const HomePage = () => {
-  let [sessions, setSessions] = useState([])//added
+  let [sleepList, setSleepList] = useState([])
 
   useEffect(() => {
     axiosWithAuth()
     .get('https://sleep-tracker2020.herokuapp.com/api/users')
     .then(res => {
       console.log(res);
-      setSessions(res.data.sessions)
+      setSleepList(res.data.sessions)
       
     })
 
@@ -21,27 +23,13 @@ const HomePage = () => {
     })
   }, [])
 
-
-
-
   return (
     <div>
       <NavBar/>
         <h1>Welcome to main page</h1>
-        {/* ============================================================================== */}
-        {
-          sessions.map(session => {
-            return (
-              <div key={session.id} style={{display: 'flex', flexDirection: 'column'}}>
-                <div>
-                </div>
-                <span>Night: {new Date(session.sleep_start).toString().split(' ').slice(0, 4).join(' ')}</span>
-                <span>Day: {new Date(session.sleep_end).toString().split(' ').slice(0, 4).join(' ')}</span>
-              </div>
-            )
-          })
-        }
-        {/* ============================================================================== */}
+        <HomeCard
+        sessions={sleepList}
+        />
       
     </div>
   );
