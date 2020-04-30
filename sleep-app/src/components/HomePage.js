@@ -1,6 +1,7 @@
 import React from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import NavBar from './NavBar';
+import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component{
 
@@ -60,7 +61,6 @@ class HomePage extends React.Component{
                 <div className="ListOfSleep">
                     {this.state.sleepData.map(sleep => 
                         <div className='card' key={sleep.id}>
-                            <h4>{`ID: ${sleep.id}`}</h4>
                             <h4>{`${sleep.sleep_start}`}</h4>
                             <h4>{`${sleep.sleep_end}`}</h4>
                             <button onClick={(event)=> this.submitHandler(event, sleep.id)}>X</button>
@@ -71,7 +71,7 @@ class HomePage extends React.Component{
                     <input className='end' onChange={this.changeHandler} placeholder="End"  name="sleep_end" /> <br/>
                     <input className='end-score' onChange={this.changeHandler} placeholder="End-Score" type='number' name="end_score" /> <br/>
                     <input className='over-score' onChange={this.changeHandler} placeholder='score' type='number' name='overall_score'/> <br/>
-                    <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Edit</button>
+                    <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Finish</button>
                 </form>
                       } 
                             <button onClick={() => this.setState({isEditing:!this.state.isEditing})}>Edit</button>
@@ -80,19 +80,11 @@ class HomePage extends React.Component{
                             <div className="DeleteFriend">
                 
             </div>
-                      {/* {this.state.isEditing &&
-                 <form>
-                    <input className='start' onChange={this.changeHandler} placeholder="Start" name="sleep_start" /> <br/>
-                    <input className='first-score' onChange={this.changeHandler} placeholder="Start-Score" type='number' name="start_score" /> <br/>
-                    <input className='end' onChange={this.changeHandler} placeholder="End"  name="sleep_end" /> <br/>
-                    <input className='end-score' onChange={this.changeHandler} placeholder="End-Score" type='number' name="end_score" /> <br/>
-                    <input className='over-score' onChange={this.changeHandler} placeholder='score' type='number' name='overall_score'/> <br/>
-                    <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Edit</button>
-                </form>
-                      }    */}
+                 
                        
                         </div>)
                     }
+                     <Link to='/sleep-form'>Add Session</Link>
                 </div>
             </div>
         )

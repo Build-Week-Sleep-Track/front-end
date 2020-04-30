@@ -37,16 +37,17 @@ const Login = props => {
     };
 
     return (
-        <div>
+        <div className='login-body'>
             <div className='login-head'>
             <h1>Welcome Back!</h1>
           <p>You're one step closer to finding your ideal sleep schedule</p>
             </div>
          
           
+         
+          <div className='Login'>
           <h3>Login</h3>
-          <div>
-            <form onSubmit={handleSubmit}>
+            <form className='Login-inputs'onSubmit={handleSubmit}>
               <input
                 label="Email"
                 type="text"

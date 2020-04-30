@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <div>
+        <nav>
+            <h1>Sleep Tracker</h1>
             <Link to='/home-page'>Home</Link>
             <Link to='/'>Logout</Link>
            
-        </div>
+        </nav>
     );
 };
 
