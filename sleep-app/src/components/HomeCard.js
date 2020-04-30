@@ -35,21 +35,3 @@ function HomeCard(props){
 }
 
 export default HomeCard;
-
-
-
-
-
-        // {
-        //     sessions.map(session => {
-        //         return (
-        //         <div key={session.id} style={{display: 'flex', flexDirection: 'column'}}>
-        //             <div>
-        //             </div>
-        //             <span>Night: {new Date(session.sleep_start).toString().split(' ').slice(0, 4).join(' ')}</span>
-        //             <span>Day: {new Date(session.sleep_end).toString().split(' ').slice(0, 4).join(' ')}</span>
-        //             <span>Your mood this session: {session.overall_score}</span>
-        //         </div>
-        //         )
-        //     })
-        // }
