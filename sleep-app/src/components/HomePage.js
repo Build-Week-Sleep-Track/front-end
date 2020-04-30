@@ -6,7 +6,7 @@ class HomePage extends React.Component{
 
     constructor(){
         super();
-        this.state = { sleepData: [], id: '', deletedSleep: '', isEditing: 'false'}
+        this.state = { sleepData: [], id: '', deletedSleep: '', isEditing: false }
     }
 
     componentDidMount() {
@@ -64,13 +64,33 @@ class HomePage extends React.Component{
                             <h4>{`${sleep.sleep_start}`}</h4>
                             <h4>{`${sleep.sleep_end}`}</h4>
                             <button onClick={(event)=> this.submitHandler(event, sleep.id)}>X</button>
-                            <button onClick={() => !this.state.isEditing }>Edit</button>
+                            {this.state.isEditing &&
+                 <form>
+                    <input className='start' onChange={this.changeHandler} placeholder="Start" name="sleep_start" /> <br/>
+                    <input className='first-score' onChange={this.changeHandler} placeholder="Start-Score" type='number' name="start_score" /> <br/>
+                    <input className='end' onChange={this.changeHandler} placeholder="End"  name="sleep_end" /> <br/>
+                    <input className='end-score' onChange={this.changeHandler} placeholder="End-Score" type='number' name="end_score" /> <br/>
+                    <input className='over-score' onChange={this.changeHandler} placeholder='score' type='number' name='overall_score'/> <br/>
+                    <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Edit</button>
+                </form>
+                      } 
+                            <button onClick={() => this.setState({isEditing:!this.state.isEditing})}>Edit</button>
+                            {console.log(this.state.isEditing)}
+
                             <div className="DeleteFriend">
                 
             </div>
-
-                            <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Edit</button>
-                          
+                      {/* {this.state.isEditing &&
+                 <form>
+                    <input className='start' onChange={this.changeHandler} placeholder="Start" name="sleep_start" /> <br/>
+                    <input className='first-score' onChange={this.changeHandler} placeholder="Start-Score" type='number' name="start_score" /> <br/>
+                    <input className='end' onChange={this.changeHandler} placeholder="End"  name="sleep_end" /> <br/>
+                    <input className='end-score' onChange={this.changeHandler} placeholder="End-Score" type='number' name="end_score" /> <br/>
+                    <input className='over-score' onChange={this.changeHandler} placeholder='score' type='number' name='overall_score'/> <br/>
+                    <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Edit</button>
+                </form>
+                      }    */}
+                       
                         </div>)
                     }
                 </div>
