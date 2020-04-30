@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { Route, NavLink, useHistory } from 'react-router-dom';
 
 // components
 import NavBar from "./NavBar";
 
 const HomePage = () => {
-  let [sessions, setSessions] = useState([])//added
+  
+const {push} = useHistory();
+const [sleepList, setSleepList] = useState([]);
 
   useEffect(() => {
+   
     axiosWithAuth()
-    .get('https://sleep-tracker2020.herokuapp.com/api/users')
+    .get('/users')
     .then(res => {
       console.log(res);
-      setSessions(res.data.sessions)
-      
+
+      setSleepList(res.data.sessions)
     })
 
     .catch(err => {
       console.log(err, 'you have an error');
     })
-  }, [])
+  
+  
+}, [])
 
 
 
@@ -28,20 +34,21 @@ const HomePage = () => {
     <div>
       <NavBar/>
         <h1>Welcome to main page</h1>
-        {/* ============================================================================== */}
-        {
-          sessions.map(session => {
-            return (
-              <div key={session.id} style={{display: 'flex', flexDirection: 'column'}}>
-                <div>
-                </div>
-                <span>Night: {new Date(session.sleep_start).toString().split(' ').slice(0, 4).join(' ')}</span>
-                <span>Day: {new Date(session.sleep_end).toString().split(' ').slice(0, 4).join(' ')}</span>
-              </div>
-            )
-          })
-        }
-        {/* ============================================================================== */}
+
+        <ul>
+          {sleepList ? sleepList.map(sleep => (
+            <li key={sleep.id}>
+            Start- {sleep.sleep_start}
+            End- {sleep.sleep_end}
+            </li>
+          ))
+        : null}
+        </ul>
+
+        <button className='nd-button' onClick={() => push('/sleep-form')}>Add Session</button>
+        
+
+
       
     </div>
   );
