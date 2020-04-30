@@ -6,7 +6,7 @@ class HomePage extends React.Component{
 
     constructor(){
         super();
-        this.state = { sleepData: [], id: '', deletedSleep: ''}
+        this.state = { sleepData: [], id: '', deletedSleep: '', isEditing: 'false'}
     }
 
     componentDidMount() {
@@ -64,16 +64,12 @@ class HomePage extends React.Component{
                             <h4>{`${sleep.sleep_start}`}</h4>
                             <h4>{`${sleep.sleep_end}`}</h4>
                             <button onClick={(event)=> this.submitHandler(event, sleep.id)}>X</button>
-                            <button>Edit</button>
+                            <button onClick={() => !this.state.isEditing }>Edit</button>
                             <div className="DeleteFriend">
-                {/* <p>Delete</p>
-                <form onSubmit={this.submitHandler}>
-                    <input onChange={this.changeHandler} placeholder="Enter an id"/>
-                    <button>X</button>
-                </form> */}
-                {/* <button className='nd-button' onClick={() => push('/sleep-form')}>Add Session</button> */}
+                
             </div>
 
+                            <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Edit</button>
                           
                         </div>)
                     }
