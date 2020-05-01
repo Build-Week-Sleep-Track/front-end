@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       MuiInputLabel: {
           root: {
               '&:hover': {
-                  color: 'orange'
+                  color: 'white'
               }
           }
       }
