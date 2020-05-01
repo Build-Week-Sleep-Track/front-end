@@ -5,16 +5,75 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(49, 48, 48);
+  background-color: rgb(19, 18, 18);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.login-body{
+p{
+  color:grey;
+}
+h1{
+  color: #fff;
+  font-size: xx-large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.login-container{
   display: flex;
-    margin-top: 28%;
+  justify-content: space-evenly;
+    margin-top: 18%;
+    margin-left: 2%;
+}
+.login{
+  margin-right: 3%;
 }
 
+nav{
+  background-color: rgb(51, 50, 50);
+  display: flex;
+  justify-content: space-between;
+  word-spacing: 3px;
+}
+.sleep-tracker{
+  margin-left: 3%;
+  }
+.a{
+  margin-right: 10%;
+  margin-top: 3%;
+
+}
+.home{
+  margin-right: 40%;
+  font-size: 25px;
+}
+
+.logout{
+  margin-right: 10%;
+  font-size: 25px;
+}
+
+.email-form{
+  width: 250px;
+  height: 40px;
+  
+}
+.password-form{
+  width: 250px;
+  height: 40px;
+  margin-top: 8%;
+}
+
+button{
+  width: 130px;
+  height: 30px;
+  color: white;
+  background-color: grey;
+  font-size: 1rem;
+  border-radius: 8%;
+  margin-bottom: 5%;
+}
+h3{
+  color: gray;
+}
