@@ -33,17 +33,20 @@ const SleepForm = () => {
     }
 
     
+    
         return(
             <div className="AddSleep">
                 <NavBar/>
                 <h2 className='addsleep'>Add Sleep</h2>
                 <form onSubmit={submitHandler}>
                     <input className='start' onChange={changeHandler} placeholder="Start" name="sleep_start" /> <br/>
-                    <input className='first-score' onChange={changeHandler} placeholder="Start-Score" type='number' name="start_score" /> <br/>
                     <input className='end' onChange={changeHandler} placeholder="End"  name="sleep_end" /> <br/>
+                    <input className='first-score' onChange={changeHandler} placeholder="Start-Score" type='number' name="start_score" /> <br/>
+
                     <input className='end-score' onChange={changeHandler} placeholder="End-Score" type='number' name="end_score" /> <br/>
                     <input className='over-score' onChange={changeHandler} placeholder='score' type='number' name='overall_score'/> <br/>
-                    <button className='add' type='submit' onClick={() => push('/home-page')} >Add Session</button>
+                
+                    <button className='add' type='submit' onClick={() => push('/home-page')} >Add Session</button> */}
                 </form>
                 
                 {/* {console.log('line 11', this.state)} */}
@@ -64,3 +67,17 @@ export default SleepForm;
 
 
 
+//   /* <select onChange={changeHandler} name='end_score' placeholder='🤔'>
+//                     <option value='0'>🤔</option>  
+//                     <option value='1'>😞</option>
+//                     <option value='2'>😐</option>
+//                     <option value='3'>😀</option>
+//                     <option value='4'>😁</option>
+//                     </select> <br/>
+//                     <select onChange={changeHandler} name='overall_score' placeholder='🤔'>
+//                     <option value='0'>🤔</option>     
+//                     <option value='1'>😞</option>
+//                     <option value='2'>😐</option>
+//                     <option value='3'>😀</option>
+//                     <option value='4'>😁</option>
+//                     </select> <br/>
