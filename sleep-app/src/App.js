@@ -10,7 +10,6 @@ import HomePage from './components/HomePage';
 import Registration from './components/Registration';
 import SleepForm from './components/SleepForm';
 
-
 let initialRegistrationValues = {
   first_name: '',
   last_name: '',
