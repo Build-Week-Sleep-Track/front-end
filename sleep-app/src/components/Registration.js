@@ -9,6 +9,9 @@ let useStyles = makeStyles({
         '&:hover': {
             backgroundColor: 'red'
         },
+        width: '40%',
+        margin: '10px 0',
+        marginTop: '20px'
     },
     mainContainer: {
         backgroundColor: '#131313',
@@ -18,9 +21,10 @@ let useStyles = makeStyles({
         alignItems: 'center'
     },
     fieldStyles: {
-        backgroundColor: '#4f4f4f',
-        color: 'red',
+        backgroundColor: '#262626',
         width: '100%',
+        padding: '1px',
+        margin: '10px 0',
     },
     input: {
         color: 'white'
@@ -36,7 +40,7 @@ let useStyles = makeStyles({
 let StyledForm = styled.form`
 display: flex;
 flex-direction: column;
-width: 45%;
+width: 40%;
 `
 
 function Registration(props){
@@ -54,34 +58,45 @@ function Registration(props){
     return (
         <>
         <Container className={classes.mainContainer}>
-        <h1 style={{color: 'white'}}>Let's get started!</h1>
-        <h3 style={{color: '#c4c4c4'}}>Let Sleep Tracker help you discover <span style={{display: 'block'}}></span>your ideal sleep schedule></h3>
+        
+        <div className='getStartedCont' style={{height: '45vh'}}>
+            <h1 style={{color: 'white', marginBottom: '50px', fontSize: '45px'}}>Let's get started!</h1>
+            <h3 style={{color: '#c4c4c4', fontSize: '23px'}}>Let Sleep Tracker help you discover <span style={{display: 'block'}}></span>your ideal sleep schedule></h3>
+        </div>
+        
         <StyledForm noValidate autoComplete="off">
-            <TextField 
-            className={classes.fieldStyles}
-            InputProps={{className: classes.input}}
-            InputLabelProps={{className: classes.inputLabel}}
-            variant='filled'
-            id="first_name" 
-            type='text' 
-            name='first_name' 
-            label="First Name"
-            value={values.first_name} 
-            onChange={handleChanges}/>
+            <div className='firstLastCont' style={{display: 'flex', justifyContent: 'space-between'}}>
+                <TextField
+                style={{width: '30%'}} 
+                margin='dense'
+                className={classes.fieldStyles}
+                InputProps={{className: classes.input}}
+                InputLabelProps={{className: classes.inputLabel}}
+                variant='filled'
+                id="first_name" 
+                type='text' 
+                name='first_name' 
+                label="First Name"
+                value={values.first_name} 
+                onChange={handleChanges}/>
 
-            <TextField 
-            className={classes.fieldStyles}
-            InputProps={{className: classes.input}}
-            InputLabelProps={{className: classes.inputLabel}}
-            variant='filled'
-            id="last_name" 
-            type='text' 
-            name='last_name' 
-            label="Last Name" 
-            value={values.last_name} 
-            onChange={handleChanges}/>
+                <TextField 
+                style={{width: '30%'}} 
+                margin='dense'
+                className={classes.fieldStyles}
+                InputProps={{className: classes.input}}
+                InputLabelProps={{className: classes.inputLabel}}
+                variant='filled'
+                id="last_name" 
+                type='text' 
+                name='last_name' 
+                label="Last Name" 
+                value={values.last_name} 
+                onChange={handleChanges}/>
+            </div>
 
             <TextField
+            margin='dense'
             className={classes.fieldStyles}
             InputProps={{className: classes.input}}
             InputLabelProps={{className: classes.inputLabel}}
@@ -94,6 +109,7 @@ function Registration(props){
             onChange={handleChanges}/>
 
             <TextField 
+            margin='dense'
             className={classes.fieldStyles}
             InputProps={{className: classes.input}}
             InputLabelProps={{className: classes.inputLabel}}
@@ -106,6 +122,7 @@ function Registration(props){
             onChange={handleChanges}/>
 
             <TextField 
+            margin='dense'
             className={classes.fieldStyles}
             InputProps={{className: classes.input}}
             InputLabelProps={{className: classes.inputLabel}}
