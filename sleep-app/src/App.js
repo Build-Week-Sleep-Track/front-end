@@ -90,7 +90,7 @@ function App() {
           {/* <h1> 
           Hello world
           </h1> */}
-            <Route exact path="/login" component={Login}/>
+            <Route exact path="/" component={Login}/>
             <Route exact path='/registration'>
             <Registration
             values={registrationValues}
