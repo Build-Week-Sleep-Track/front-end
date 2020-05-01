@@ -32,7 +32,7 @@ let formSchema = yup.object().shape({
   first_name: yup.string().min(2, 'Must be at least 2 characters long').required('Please fill in your first name'),
   last_name: yup.string().min(2, 'Must be at least 2 characters long').required('Please fill in your last name'),
   email: yup.string().email('enter valid email').required('email is required'),
-  password: yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{5,})/, 'Needs to be at least 5 characters long, Must have a capital and lowercase character, and include a number and symbol)'),
+  password: yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{5,})/, 'Needs to be at least 5 characters long, Must have a capital and lowercase character, and include a number and symbol'),
   confirm_password: yup.string().required().oneOf([yup.ref('password'), null], 'Passwords must match')
 })
 
@@ -83,9 +83,9 @@ function App() {
         })
         setRegistrationValues(initialRegistrationValues)
     }
-
+//style={{backgroundColor: 'black', height: '100vh'}}
   return (
-   <div className="App">
+   <div className="App" style={{height: '100vh'}}>
        <Router>
           {/* <h1> 
           Hello world
