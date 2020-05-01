@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import HomePage from './components/HomePage';
 import Registration from './components/Registration';
 import SleepForm from './components/SleepForm';
+import NavBar from './components/NavBar';
 
 
 let initialRegistrationValues = {
@@ -86,6 +87,7 @@ function App() {
 //style={{backgroundColor: 'black', height: '100vh'}}
   return (
    <div className="App" style={{height: '100vh'}}>
+    
        <Router>
           {/* <h1> 
           Hello world

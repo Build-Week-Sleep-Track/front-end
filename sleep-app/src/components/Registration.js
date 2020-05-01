@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, TextField, Container } from '@material-ui/core'
 import styled from 'styled-components';
 import { makeStyles, withTheme } from '@material-ui/core/styles';
+import NavBar from './NavBar';
 console.log('asdf', TextField)
 let useStyles = makeStyles({
     buttonStyles: {
@@ -56,7 +57,11 @@ function Registration(props){
 
     console.log('props in reg', props)
     return (
+        
+        
         <>
+
+        
         <Container className={classes.mainContainer}>
         
         <div className='getStartedCont' style={{height: '45vh'}}>

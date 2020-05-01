@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import NavBar from './NavBar';
 
 const initailState = {
     email: "",
@@ -39,6 +40,10 @@ const Login = props => {
     return (
       
         <div className='login-body'>
+          <div className='login-nav'>
+          <NavBar/>
+          </div>
+          <div className='login-container'>
             <div className='login-head'>
             <h1>Welcome Back!</h1>
           <p>You're one step closer to finding your ideal sleep schedule</p>
@@ -49,7 +54,7 @@ const Login = props => {
           <div className='Login'>
           <h3>Login</h3>
             <form className='Login-inputs'onSubmit={handleSubmit}>
-              <input
+              <input className='email-form'
                 label="Email"
                 type="text"
                 name="email"
@@ -59,6 +64,7 @@ const Login = props => {
               />
               <br />
               <input
+              className='password-form'
                 label="Password"
                 type="password"
                 name="password"
@@ -68,10 +74,11 @@ const Login = props => {
               />
               <br />
               <br />
-              <button>Log In</button>
+              <button className='login-btn'>Log In</button>
               {login.isFetching && "Please wait...logging you in"}
             </form>
-            Don't have an account? <Link to="/registration">Sign Up</Link>
+            <p>Don't have an account?</p> <Link to="/registration">Sign Up</Link>
+          </div>
           </div>
         </div>
       );

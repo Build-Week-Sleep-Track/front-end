@@ -68,14 +68,16 @@ class HomePage extends React.Component{
         return(
             <div className="sleepList">
               <NavBar/>
-                <h2 className='sleephead'>Sleep Sessions</h2>
-                <div className="ListOfSleep" >
-
+                <h2 className='sleephead' style={{textAlign:'center', fontSize:'3.5rem', color:'#CFCCCC'}}>Sleep Sessions</h2>
+                <div className="ListOfSleep" style={{width:'330px', height:'500px', overflow: 'scroll', display:'flex', flexDirection:'column', marginLeft:'35%', border:'2px solid grey', padding:'2% 2%'}}>
+                <Link to='/sleep-form'>Add Session</Link>
                     {this.state.sleepData.map(sleep => (
                         <div className='card' key={sleep.id}>
+                          
                             <h4>{`${sleep.sleep_start}`}</h4>
                             <h4>{`${sleep.sleep_end}`}</h4>
-                            <button onClick={(event)=> this.submitHandler(event, sleep.id)}>🗑</button>
+                            
+                            <span onClick={(event)=> this.submitHandler(event, sleep.id)}>🗑</span>
                             {this.state.isEditing &&
                  <form>
                     <input className='start' onChange={this.changeHandler} placeholder="Start" name="sleep_start" /> <br/>
@@ -87,20 +89,21 @@ class HomePage extends React.Component{
                     <button onClick={(event)=> this.submitEditHandler(event, sleep.id, sleep.updatedInfo)}>Finish</button>
                 </form>
                       } 
-                            <button onClick={() => this.setState({isEditing:!this.state.isEditing})}>📝</button>
+                            <span onClick={() => this.setState({isEditing:!this.state.isEditing})}>📝</span>
                             {console.log(this.state.isEditing)}
+                            </div>
                  
                        
-                        </div>
+                       
                     ))
                     }
 
 
                     
-                     <Link to='/sleep-form'>Add Session</Link>
+                     {/* <Link to='/sleep-form'>Add Session</Link> */}
                 </div>
 
-
+                   <p style={{textAlign:'center', color:'#CFCCCC', marginTop:'3%'}}>Ⓒ 2020 SLEEP APP BUILD WEEK</p>
             </div>
         )
     }
